@@ -11,17 +11,10 @@
          crossorigin="anonymous"
       />
    </head>
-   <style>
-      body {
-         background-color: #f6f6f6;
-      }
-      .container {
-         background-color: white;
-      }
-   </style>
-   <body>
+
+   <body class="bg-light">
       <div
-         class="container mt-4 col-11 col-sm-8 col-md-6 col-lg-9 p-4 rounded-4 shadow"
+         class="container mt-4 p-4 rounded-4 shadow bg-white"
       >
          <form action="">
             <h4>Form Kasir</h2>
@@ -33,16 +26,16 @@
             
 
             <label>Staus Customer</label>
-            <div class="form-input d-flex mt-1 mb-3 gap-3">
-                <div class="form-check">
+            <div class="d-flex mt-1 mb-3 gap-3">
+                <div>
                   <input class="form-check-input" type="radio" name="status" id="nonmember" required/>
                   <label for="nonmember">Non-Member</label>
                </div>
-               <div class="form-check">
+               
+               <div>
                   <input class="form-check-input" type="radio" name="status" id="member" required/>
                   <label for="member">Member (Diskon 5%)</label>
                </div>
-               
             </div>
 
             <div class="mb-3">
@@ -92,12 +85,13 @@
                <input
                   type="submit"
                   value="Simpan Transaksi"
-                  class="btn btn-success"
+                  class="btn btn-primary"
                />
             </div>
          </form>
       </div>
    </body>
+   
    <script>
         const harga = document.getElementById("harga");
         const jumlah = document.getElementById("jumlah");
@@ -113,7 +107,7 @@
              const hargaValue = harga.value;
              const jumlahValue = jumlah.value;
 
-             const subtotalValue =hargaValue * jumlahValue;
+             const subtotalValue = hargaValue * jumlahValue;
              subtotal.value = subtotalValue.toLocaleString('id-ID', { style: 'currency', currency: 'IDR' });
 
              let diskonValue = 0;
@@ -126,7 +120,7 @@
              const totalValue = subtotalValue - diskonValue;
              total.value = totalValue.toLocaleString('id-ID', { style: 'currency', currency: 'IDR' });
         }
-    
+
         harga.addEventListener("input", hitungTotal);
         jumlah.addEventListener("input", hitungTotal);
         memberRadio.addEventListener("change", hitungTotal);
